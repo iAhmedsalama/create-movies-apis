@@ -30,7 +30,7 @@ namespace MoviesApi.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAllMovies()
         {
-            var movies = _moviesService.GetAll();
+            var movies = await _moviesService.GetAll();
 
             //map movies to DTOs
             var data = _mapper.Map<IEnumerable<MovieDetailsDto>>(movies);
@@ -56,7 +56,7 @@ namespace MoviesApi.Controllers
         [HttpGet("GetMoviesByGenreId")]
         public async Task<IActionResult> GetMoviesByGenreId(byte genreId)
         {
-            var movies = await _moviesService.GetAllMovies(genreId);
+            var movies = await _moviesService.GetAll(genreId);
 
             //map movies to DTOs
             var data = _mapper.Map<IEnumerable<MovieDetailsDto>>(movies);
@@ -91,10 +91,13 @@ namespace MoviesApi.Controllers
             using var dataStream = new MemoryStream();
             await dto.Poster.CopyToAsync(dataStream);
 
+            //mapping from MoviesDetailsDto to Movie
             var movie = _mapper.Map<Movie>(dto);
+
+            //Mapping Poster
             movie.Poster = dataStream.ToArray();
 
-            _moviesService.CreateMovie(movie);
+            _moviesService.Create(movie);
 
             return Ok(movie);
         }
@@ -133,7 +136,7 @@ namespace MoviesApi.Controllers
             movie.Stroyline = dto.Stroyline;
             movie.Rate = dto.Rate;
 
-            _moviesService.UpdateMovie(movie);
+            _moviesService.Update(movie);
 
             return Ok(movie);
         }
@@ -148,7 +151,7 @@ namespace MoviesApi.Controllers
             if (movie == null)
                 return NotFound($"No Movie Found With this Id {id}");
 
-            _moviesService.DeleteMovie(movie);
+            _moviesService.Delete(movie);
 
             return Ok(movie);
         }

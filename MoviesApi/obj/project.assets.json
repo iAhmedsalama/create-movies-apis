@@ -2118,11 +2118,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Programming\\7.Repos\\DevCreed\\MoviesApi\\MoviesApi\\MoviesApi.csproj",
+      "projectUniqueName": "E:\\Programming\\7.Repos\\DevCreed\\create-movies-apis\\MoviesApi\\MoviesApi.csproj",
       "projectName": "MoviesApi",
-      "projectPath": "E:\\Programming\\7.Repos\\DevCreed\\MoviesApi\\MoviesApi\\MoviesApi.csproj",
+      "projectPath": "E:\\Programming\\7.Repos\\DevCreed\\create-movies-apis\\MoviesApi\\MoviesApi.csproj",
       "packagesPath": "C:\\Users\\Ahmed Khalil\\.nuget\\packages\\",
-      "outputPath": "E:\\Programming\\7.Repos\\DevCreed\\MoviesApi\\MoviesApi\\obj\\",
+      "outputPath": "E:\\Programming\\7.Repos\\DevCreed\\create-movies-apis\\MoviesApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Ahmed Khalil\\AppData\\Roaming\\NuGet\\NuGet.Config",
